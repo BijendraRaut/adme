@@ -13,13 +13,20 @@ const Data = () => {
       `https://picsum.photos/v2/list?page=${page}&limit=500`
     );
     const json = await data.json();
-    setPhotos(json);
+    setPhotos((prevPhotos) => [...prevPhotos, ...json]);
     setIsLoading(false);
   };
 
   useEffect(() => {
     getPhotos();
-  }, []);
+  }, [page]);
+
+  const handleDownload = (url) => {
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "image.jpg";
+    link.click();
+  };
 
   return (
     <>
@@ -47,13 +54,12 @@ const Data = () => {
               <div id={image.id} className="overlay" style={{ opacity: 0 }}>
                 <div className="flex items-center justify-between">
                   <span className="text-gray-500 m-1">{image.author}</span>
-                  <a
-                    href={image.download_url}
-                    download
-                    className="px-4 text-white rounded"
+                  <button
+                    onClick={() => handleDownload(image.download_url)}
+                    className="px-4 py-2 text-white rounded"
                   >
                     <img className="w-6" src={download} alt="download" />
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -61,15 +67,21 @@ const Data = () => {
         </div>
       )}
       <div className="flex justify-center ">
-        <button
-          onClick={() => {
-            setPage(page + 1);
-            getPhotos();
-          }}
-          className="px-4 py-2 bg-black text-white rounded m-2"
-        >
-          Load More
-        </button>
+        {isLoading ? (
+          <button
+            className="px-4 py-2 bg-black text-white rounded m-2"
+            disabled
+          >
+            Loading...
+          </button>
+        ) : (
+          <button
+            onClick={() => setPage(page + 1)}
+            className="px-4 py-2 bg-black text-white rounded m-2"
+          >
+            Load More
+          </button>
+        )}
       </div>
     </>
   );
