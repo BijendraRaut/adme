@@ -3,7 +3,7 @@ const Navbar = () => {
     <>
       <div className="font-landypix text-4xl font-black tracking-wider text-white transition-all duration-300 ease-linear hover:text-gray-400 p-2">
         <a href="#">
-          <h1>landypix</h1>
+          <h1>Tech Pixels</h1>
         </a>
       </div>
       <div className="flex items-center justify-center space-x-10 text-white">

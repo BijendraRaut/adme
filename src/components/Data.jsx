@@ -5,17 +5,20 @@ import Loading from "./Loading";
 const Card = () => {
   const [photos, setPhotos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    getPhotos();
-  }, []);
+  const [page, setPage] = useState(1);
 
   const getPhotos = async () => {
-    const data = await fetch("https://picsum.photos/v2/list");
+    const data = await fetch(
+      `https://picsum.photos/v2/list?page=${page}&limit=500`
+    );
     const json = await data.json();
     setPhotos(json);
     setIsLoading(false);
   };
+
+  useEffect(() => {
+    getPhotos();
+  }, []);
 
   return (
     <>
@@ -30,11 +33,22 @@ const Card = () => {
               key={image.id}
               id={image.id}
               src={image.download_url}
-              alt="Image"
+              alt="thumbnail"
             />
           ))}
         </div>
       )}
+      <div className="flex justify-center ">
+        <button
+          onClick={() => {
+            setPage(page + 1);
+            getPhotos();
+          }}
+          className="px-4 py-2 bg-black text-white rounded m-2"
+        >
+          Load More
+        </button>
+      </div>
     </>
   );
 };
