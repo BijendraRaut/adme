@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Buttons from "./Buttons";
 import Loading from "./Loading";
+import download from "../assets/download.png";
 
-const Card = () => {
+const Data = () => {
   const [photos, setPhotos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -26,15 +27,36 @@ const Card = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <div className="flex flex-wrap">
+        <div className="flex justify-center flex-wrap">
           {photos.map((image) => (
-            <img
-              className="w-96 mx-auto m-4"
+            <div
               key={image.id}
-              id={image.id}
-              src={image.download_url}
-              alt="thumbnail"
-            />
+              className="m-2 mb-0 relative"
+              onMouseEnter={() => {
+                document.getElementById(image.id).style.opacity = "1";
+              }}
+              onMouseLeave={() => {
+                document.getElementById(image.id).style.opacity = "0";
+              }}
+            >
+              <img
+                src={image.download_url}
+                width={Math.floor(Math.random() * 200) + 200}
+                alt="thumbnail"
+              />
+              <div id={image.id} className="overlay" style={{ opacity: 0 }}>
+                <div className="flex items-center justify-between">
+                  <span className="text-gray-500 m-1">{image.author}</span>
+                  <a
+                    href={image.download_url}
+                    download
+                    className="px-4 text-white rounded"
+                  >
+                    <img className="w-6" src={download} alt="download" />
+                  </a>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       )}
@@ -53,4 +75,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default Data;
