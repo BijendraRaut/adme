@@ -1,3 +1,31 @@
+# 1. Project Title: 
+                  Tech Pixels is a stock photo platform that allows users to browse and search for high-quality images
+# 2. Project Description:     
+                        Tech Pixels is a website that offers high-quality stock photos that are free to use for any purpose, including commercial use. Tech Pixels has a large and growing collection of photos, and new photos are added every day.
+                        
+# 3. Demo: 
+           Included the link to the live demo of your project (https://wonderful-smakager-1ade11.netlify.app/).
+# 4. Installation: 
+                  Provided instructions below in detail on how to install and set up your project, including any dependencies or prerequisites.
+# 5. Usage: 
+          To use Tech Pixels stock photos, simply visit the above-given  website and browse the collection. When you find a photo that you want to use, click on it to download it.
+
+When you download a photo from Tech Pixels, you can just hover over photos and download it.
+
+
+# 6. Technologies Used: 
+Technologies - HTML, CSS JavaScript
+Framework - Tailwind
+Library - ReactJS
+API - https://picsum.photos/v2/list
+      https://picsum.photos/v2/list?page=2&limit=100
+
+# 7. Screenshots/GIFs:
+![Screenshot 2023-09-19 at 12 52 40](https://github.com/BijendraRaut/adme/assets/61984063/809f1d9a-5303-403c-a48e-bacfb2aa837e)
+![Screenshot 2023-09-19 at 12 51 45](https://github.com/BijendraRaut/adme/assets/61984063/fde0da8e-352c-4942-be6b-2e7c734ebef0)
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
