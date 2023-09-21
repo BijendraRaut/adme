@@ -1,5 +1,5 @@
 # 1. Project Title: 
-Tech Pixels is a stock photo platform that allows users to browse and search for high-quality images.
+Tech Pixels is a photo stock platform that allows users to browse and download high-quality images.
 
 # 2. Project Description:     
 Tech Pixels is a website that offers high-quality stock photos that are free to use for any purpose, including commercial use. Tech Pixels has a large and growing collection of photos, and new photos are added every day.
