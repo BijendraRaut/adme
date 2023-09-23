@@ -1,5 +1,6 @@
 import mainLogo from "../assets/header.png";
 import Navbar from "./Navbar";
+
 const Hero = () => {
   const backgroundImageStyle = {
     backgroundImage: `URL(${mainLogo})`,
